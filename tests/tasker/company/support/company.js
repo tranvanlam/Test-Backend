@@ -159,6 +159,64 @@ module.exports = function() {
   	this.Then(/^I check checkbox allow employees to receive their own jobs$/, function () {
 	    browser.click('input[data-reactid=".1.1.2.0.1.0.0:1.0.2.0.0.0"]');
   	});
+  	this.Then(/^I set phone number tasker exist "([^"]*)"$/, function (num) {
+	    browser.setValue('input[id="PhoneTextField"]', num);
+	    browser.keys('Enter');
+  	});
+  	this.Then(/^I click close "([^"]*)"$/, function (close) {
+	    browser.click('button='+ close);
+ 	});
+  	this.Then(/^I go to task backend$/, function () {
+	    browser.url('http://192.168.1.123:4000/task');
+  	});
+  	this.Then(/^I see task$/, function (table) {
+  		browser.waitForExist('p=Dịch vụ', 10000);
+	    table.hashes().forEach((task)=>{
+	    	browser.waitForExist('td='+ task.service);
+	    	browser.waitForExist('td='+ task.name);
+	    	browser.waitForExist('td='+ task.phone_number);
+	    	browser.waitForExist('td='+ task.address);
+	    	browser.waitForExist('td='+ task.time_post);
+	    	browser.waitForExist('td='+ task.status);
+	    });
+  	});
+  	this.Then(/^I click task of "([^"]*)" "([^"]*)"$/, function (arg1, arg2) {
+	    browser.click('td='+ arg2);
+	    browser.click('td='+ arg2);
+  	});
+  	this.Then(/^I click element add tasker "([^"]*)"$/, function (tag) {
+	    browser.waitForExist('a='+ tag, 10000);
+	    browser.click('a='+ tag);
+  	});
+  	this.Then(/^I set phone number tasker is employee of company "([^"]*)"$/, function (phone) {
+	    browser.waitForVisible('input[data-reactid=".3.1.0.0.1.1.1.3.0.0.0.0"]', 10000);
+	    browser.addValue('input[data-reactid=".3.1.0.0.1.1.1.3.0.0.0.0"]', phone);
+  	});
+  	this.Then(/^I add "([^"]*)"$/, function (add) {
+	    browser.click('button='+ add);
+  	});
+
+  	//block company
+  	this.Then(/^I click block company "([^"]*)"$/, function (block) {
+	    browser.click('button='+ block);
+  	});
+  	this.Then(/^I click close dialog "([^"]*)"$/, function (arg1) {
+	    browser.click('button='+ arg1);
+  	});
+  	this.Then(/^I see table list company$/, function (table) {
+		browser.waitForExist('p=Tên', 10000);
+		table.hashes().forEach((company) => {
+		    browser.waitForExist('td='+ company.name);
+		    browser.waitForExist('td='+ company.phone_number);
+		    expect(browser.getText('td[data-reactid=".1.1.2.0.1.0.2.2.1.1.0.1.$1.1:$4"]')).toEqual(company.status);
+		    browser.waitForExist('td='+ company.time_build);
+		});
+	});
+  	this.Then(/^I click verify company "([^"]*)"$/, function (verify) {
+	    browser.click('button='+ verify);
+  	});
+
+
 
 
 

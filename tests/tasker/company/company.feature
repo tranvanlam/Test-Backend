@@ -141,7 +141,54 @@ Feature: Test Tasker
 			|name|phone_number|avatar|service|status|time_build|
 			|Dao Van Cong|0904092041|||ACTIVE|26/04/2016 16:37|
 
-	@watch
+
+	Scenario: Test company with change list employee and not allow employees to receive their own jobs
+		Given visited backend
+		When click tasker "Tasker"
+		When click company table "Company"
+		Then I click company list "Company List"
+		Then I see table company
+			|name|phone_number|avatar|status|main_account|time_build|
+			|Nguyễn Tấn Thành|0917547133||ACTIVE|0 VND|26/04/2016 16:28|
+			|Lê Viết Hải|0908990768||ACTIVE|0 VND|23/04/2016 11:43|
+		Then I click company "Nguyễn Tấn Thành" "0917547133"
+		Then I see information company "Thông tin công ty"
+		Then I click list employee "Danh sách nhân viên"
+		And I see list employee
+			|name|phone_number|avatar|service|status|time_build|
+			|Dao Van Cong|0904092041|||ACTIVE|26/04/2016 16:37|
+		And I click change list employee "Thay đổi danh sách nhân viên"
+		And i see update company "Update Company"
+		And I set phone number tasker exist "01208247585"
+		And I see table list employee
+			|avatar|name |phone_number|status|
+			||Dao Van Cong|0904092041|ACTIVE|
+			||LÊ HỒ BẢO YẾN|01208247585|ACTIVE|
+		Then I click accept in page "Xác nhận"
+		And I see table representative company:
+			|avatar|name |phone_number|status|
+			|      |Nguyễn Tấn Thành|0917547133 |ACTIVE|
+		And I see list employee:
+			|avatar|name |phone_number|status|
+			||Dao Van Cong|0904092041|ACTIVE|
+			||LÊ HỒ BẢO YẾN|01208247585|ACTIVE|
+		Then I click complete "Hoàn tất"
+		And I see dialog accept and I click accept "Xác nhận"
+		And I see dialog success "Success"
+		And I click close "Close"
+		Then I go to task backend
+		And I see task
+			|service|time_work|name|phone_number|address|price|evaluate|time_post|status|
+			|Dọn dẹp nhà|13/08/2016 11:43|Thao|0949080286|9 (XN Cao Su Dien Bien) Nguyễn Khoái, phường 1, Quận 4, Hồ Chí Minh, Vietnam|100,000 VND - 2h||29/04/2016 07:13|POSTED|
+		Then I click task of "Thao" "29/04/2016 07:13"
+		And I click element add tasker "Thêm người nhận"
+		And I set phone number tasker is employee of company "01208247585"
+		Then I add "Thêm"
+		And I see dialog accept and I click accept "Xác nhận"
+		And I see dialog error "Tasker is employee [BackendAddTasker]"
+
+
+
 	Scenario: Test company with change list employee and allow employees to receive their own jobs
 		Given visited backend
 		When click tasker "Tasker"
@@ -159,6 +206,11 @@ Feature: Test Tasker
 			|Dao Van Cong|0904092041|||ACTIVE|26/04/2016 16:37|
 		And I click change list employee "Thay đổi danh sách nhân viên"
 		And i see update company "Update Company"
+		And I set phone number tasker exist "01208247585"
+		And I see table list employee
+			|avatar|name |phone_number|status|
+			||Dao Van Cong|0904092041|ACTIVE|
+			||LÊ HỒ BẢO YẾN|01208247585|ACTIVE|
 		Then I click accept in page "Xác nhận"
 		And I see table representative company:
 			|avatar|name |phone_number|status|
@@ -166,7 +218,63 @@ Feature: Test Tasker
 		And I see list employee:
 			|avatar|name |phone_number|status|
 			||Dao Van Cong|0904092041|ACTIVE|
+			||LÊ HỒ BẢO YẾN|01208247585|ACTIVE|
 		Then I check checkbox allow employees to receive their own jobs
 		Then I click complete "Hoàn tất"
 		And I see dialog accept and I click accept "Xác nhận"
 		And I see dialog success "Success"
+		And I click close "Close"
+		Then I go to task backend
+		And I see task
+			|service|time_work|name|phone_number|address|price|evaluate|time_post|status|
+			|Dọn dẹp nhà|13/08/2016 11:43|Thao|0949080286|9 (XN Cao Su Dien Bien) Nguyễn Khoái, phường 1, Quận 4, Hồ Chí Minh, Vietnam|100,000 VND - 2h||29/04/2016 07:13|POSTED|
+		Then I click task of "Thao" "29/04/2016 07:13"
+		And I click element add tasker "Thêm người nhận"
+		And I set phone number tasker is employee of company "01208247585"
+		Then I add "Thêm"
+		And I see dialog accept and I click accept "Xác nhận"
+		And I see dialog success "Success"
+		And I click close "Close"
+
+	Scenario: Test block company with block all employee
+		Given visited backend
+		When click tasker "Tasker"
+		When click company table "Company"
+		Then I click company list "Company List"
+		Then I see table list company
+			|name|phone_number|avatar|status|main_account|time_build|
+			|Lê Viết Hải|0908990768||ACTIVE|0 VND|23/04/2016 11:43|
+		Then I click company "Lê Viết Hải" "0908990768"
+		Then I see information company "Thông tin công ty"
+		Then I click list employee "Danh sách nhân viên"
+		And I see list employee
+			|name|phone_number|avatar|service|status|time_build|
+			|Phan Văn Thịnh|01646821650|||ACTIVE|26/04/2016 13:35|
+			|Trương Đức Chính|01696889984|||ACTIVE|26/04/2016 13:13|
+			|Trần Thế Đạt|0937973126	|||ACTIVE|26/04/2016 13:04|
+		And I click block company "Lock Company"
+		And I see dialog accept and I click accept "Xác nhận"
+		And I see dialog success "Success"
+		And I click close dialog "Close"
+
+	@watch
+	Scenario: Test unblock company with not unblock employee
+		Given visited backend
+		When click tasker "Tasker"
+		When click company table "Company"
+		Then I click company list "Company List"
+		Then I see table list company
+			|name|phone_number|avatar|status|main_account|time_build|
+			|Lê Viết Hải|0908990768||LOCKED|0 VND|23/04/2016 11:43|
+		Then I click company "Lê Viết Hải" "0908990768"
+		Then I see information company "Thông tin công ty"
+		Then I click list employee "Danh sách nhân viên"
+		And I see list employee
+			|name|phone_number|avatar|service|status|time_build|
+			|Phan Văn Thịnh|01646821650|||LOCKED|26/04/2016 13:35|
+			|Trương Đức Chính|01696889984|||LOCKED|26/04/2016 13:13|
+			|Trần Thế Đạt|0937973126	|||LOCKED|26/04/2016 13:04|
+		And I click verify company "Verify Company"
+		And I see dialog accept and I click accept "Xác nhận"
+		And I see dialog success "Success"
+		And I click close dialog "Close"
