@@ -35,7 +35,7 @@ module.exports = function() {
   	});
   	this.Then(/^I see information name and phone number "([^"]*)" "([^"]*)"$/, function (name, phone_number) {
 	    browser.waitForExist('p='+name, 10000);
-	    browser.waitForExist('p='+ phone_number);
+	    browser.waitForExist('span='+ phone_number);
   	});
   	//Test update personal information
   	this.Then(/^I set value email "([^"]*)"$/, function (email) {
@@ -56,6 +56,9 @@ module.exports = function() {
   	});
   	this.Then(/^I see dialog success "([^"]*)"$/, function (success) {
 	    browser.waitForExist('h4='+ success, 10000);
+  	});
+  	this.Then(/^I see dialog error "([^"]*)"$/, function (error) {
+	    browser.waitForExist('div='+ error, 10000);
   	});
 
   	//Test update service

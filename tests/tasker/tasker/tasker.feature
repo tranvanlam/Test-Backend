@@ -25,11 +25,22 @@ Feature: Test tasker
 		Then I click choose general information "Thông tin chung"
 		And I see information name and phone number "TRAN QUOC BAO CHAU" "0982876871"
 		Then I set value email "tranquocbaochau@gmail.com"
-		Then I set value address "182 Triệu Quang Phục, Hồ Chí Minh, Việt Nam"
 		Then I set value introdue "Xin chao , toi duoc 45 tuoi , da co kinh nghiem lam viec lau nam , trung thuc va trach nhiem cao , vui ve va than thien ."
 		And I click update personal information "Cập nhật thông tin cá nhân"
 		Then I see dialog accept and I click accept "Xác nhận"
 		Then I see dialog success "Success"
+
+	@watch
+	Scenario: Test element update personal information tasker with email (ex:@#$@%@^^@@#)
+		Given visited tasker backend
+		Then I click choose tasker "TRAN QUOC BAO CHAU" "EwYhXy3rxKGJ2ipqC" "28/04/2016 16:32"
+		Then I click choose general information "Thông tin chung"
+		And I see information name and phone number "TRAN QUOC BAO CHAU" "0982876871"
+		Then I set value email "@#$@%@^^@@#"
+		Then I set value introdue "Xin chao , toi duoc 45 tuoi , da co kinh nghiem lam viec lau nam , trung thuc va trach nhiem cao , vui ve va than thien ."
+		And I click update personal information "Cập nhật thông tin cá nhân"
+		Then I see dialog accept and I click accept "Xác nhận"
+		Then I see dialog error "Email không chính xác"
 
 	@watch
 	Scenario: Test element update service
