@@ -1,6 +1,7 @@
 Feature: Test Tasker
 	As a user
 
+	@watch
 	Scenario: Test visited company backend
 		Given visited backend
 		When click tasker "Tasker"
@@ -11,6 +12,7 @@ Feature: Test Tasker
 			|Nguyễn Tấn Thành|0917547133||ACTIVE|0 VND|26/04/2016 16:28|
 			|Lê Viết Hải|0908990768||ACTIVE|0 VND|23/04/2016 11:43|
 
+	@watch
 	Scenario: Test create company with set phone number exist on database of input field and new company
 		Given visited backend
 		When click tasker "Tasker"
@@ -38,6 +40,7 @@ Feature: Test Tasker
 		And I see dialog accept and I click accept "Xác nhận"
 		And I see dialog success "Success"
 
+	@watch
 	Scenario: Test create company with set phone number exist on database of input field and exist company
 		Given visited backend
 		When click tasker "Tasker"
@@ -65,6 +68,7 @@ Feature: Test Tasker
 		And I see dialog accept and I click accept "Xác nhận"
 		And I see dialog error "Tasker Thành is company account [IS_COMPANY]"
 
+	@watch
 	Scenario: Test delete company
 		Given visited backend
 		When click tasker "Tasker"
@@ -81,6 +85,7 @@ Feature: Test Tasker
 		And I see dialog accept and I click accept "Xác nhận"
 		And I see dialog success "Success"
 
+	@watch
 	Scenario: Test create company with set phone number not exist on database
 		Given visited backend
 		When click tasker "Tasker"
@@ -89,6 +94,7 @@ Feature: Test Tasker
 		Then I set phone number representative company "01662849480"
 		And I see error "Không tìm thấy"
 
+	@watch
 	Scenario: Test create company with choose greater than one representative
 		Given visited backend
 		When click tasker "Tasker"
@@ -103,6 +109,7 @@ Feature: Test Tasker
 		And I click complete "Hoàn tất"
 		And I see dialog error "Bạn chỉ được chọn 1 nhân viên để đại diện công ty"
 
+	@watch
 	Scenario: Test create company with choose representative is employee of other company
 		Given visited backend
 		When click tasker "Tasker"
@@ -111,6 +118,7 @@ Feature: Test Tasker
 		Then I set phone number representative company "0904092041"
 		And I see dialog error "Error"
 
+	@watch
 	Scenario: Test create company with choose employee is representative of other company
 		Given visited backend
 		When click tasker "Tasker"
@@ -124,7 +132,7 @@ Feature: Test Tasker
 		And I set phone number tasker exist with tasker is representative of other company "0917547133"
 		And I see dialog error "Error"
 
-
+	@watch
 	Scenario: Test company information element list employee
 		Given visited backend
 		When click tasker "Tasker"
@@ -141,7 +149,7 @@ Feature: Test Tasker
 			|name|phone_number|avatar|service|status|time_build|
 			|Dao Van Cong|0904092041|||ACTIVE|26/04/2016 16:37|
 
-
+	@watch
 	Scenario: Test company with change list employee and not allow employees to receive their own jobs
 		Given visited backend
 		When click tasker "Tasker"
@@ -187,8 +195,7 @@ Feature: Test Tasker
 		And I see dialog accept and I click accept "Xác nhận"
 		And I see dialog error "Tasker is employee [BackendAddTasker]"
 
-
-
+	@watch
 	Scenario: Test company with change list employee and allow employees to receive their own jobs
 		Given visited backend
 		When click tasker "Tasker"
@@ -236,6 +243,7 @@ Feature: Test Tasker
 		And I see dialog success "Success"
 		And I click close "Close"
 
+	@watch
 	Scenario: Test block company with block all employee
 		Given visited backend
 		When click tasker "Tasker"

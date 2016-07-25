@@ -33,7 +33,6 @@ Feature: Test asker
 		Then I click choose asker "5szp9ab4LWB7yttxC" "29/04/2016 09:34"
 		Then I click choose other "Khác"
 
-
 	@watch
 	Scenario: Test element block asker
 		Given visited asker backend
@@ -50,6 +49,7 @@ Feature: Test asker
 		And I see table with asker "Phuong mai" status is locked
 			|id               |name      |phone_number|status|time_build      |referral_code|friend_code|
 			|XEdkncWTwZ7AiscTn|Phuong mai|0908228823  |LOCKED|27/04/2016 19:05|             |           |
+	
 	@watch
 	Scenario: Test element unblock asker
 		Given visited asker backend

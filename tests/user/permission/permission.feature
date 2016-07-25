@@ -8,6 +8,7 @@ Feature: Test Permission Of User
 		Then I see user name lgp "lgp" and I click edit "edit"
 		And I see app setting "AppSetting:"
 
+	@watch
 	Scenario: Test not have permission to read of Appsetting
 		And I uncheck permission "AppSetting-read"
 		Then I click save "Lưu"
@@ -15,6 +16,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/app-setting"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of Appsetting
 		And I check permission "AppSetting-read"
 		Then I click save "Lưu"
@@ -22,6 +24,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/app-setting"
 		And I see app setting in page "Cài đặt chung"
 
+	@watch
 	Scenario: Test not have permission to write of Appsetting
 		And I uncheck permission "AppSetting-write"
 		Then I click save "Lưu"
@@ -31,6 +34,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of Appsetting
 		And I check permission "AppSetting-write"
 		Then I click save "Lưu"
@@ -40,6 +44,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Cập nhật thành công"
 
+	@watch
 	Scenario: Test not have permission to read of Backend setting
 		And I uncheck permission "BackendSetting-read"
 		Then I click save "Lưu"
@@ -47,6 +52,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/backend-setting"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of Backend setting
 		And I check permission "BackendSetting-read"
 		Then I click save "Lưu"
@@ -54,6 +60,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/backend-setting"
 		And I see backend setting in page "Schedule:"
 
+	@watch
 	Scenario: Test not have permission to write of Backend setting
 		And I uncheck permission "BackendSetting-write"
 		Then I click save "Lưu"
@@ -63,6 +70,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of Backend setting
 		And I check permission "BackendSetting-write"
 		Then I click save "Lưu"
@@ -72,6 +80,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Cập nhật thành công"
 
+	@watch
 	Scenario: Test not have permission to read of Backend user
 		And I uncheck permission "backendUser-read"
 		Then I click save "Lưu"
@@ -79,6 +88,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/users"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of Backend user
 		And I check permission "backendUser-read"
 		Then I click save "Lưu"
@@ -86,6 +96,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/users"
 		And I see collection user in page "Collection"
 
+	@watch
 	Scenario: Test not have permission to write of Backend user
 		And I uncheck permission "backendUser-write"
 		Then I click save "Lưu"
@@ -98,6 +109,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of Backend user
 		And I check permission "backendUser-write"
 		Then I click save "Lưu"
@@ -110,6 +122,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see collection user in page "Collection"
 
+	@watch
 	Scenario: Test not have permission to delete of Backend user
 		And I uncheck permission "backendUser-delete"
 		Then I click save "Lưu"
@@ -119,7 +132,8 @@ Feature: Test Permission Of User
 		Then I see user name lgp "lgp" and I click edit "delete"
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
-	
+
+	@watch
 	Scenario: Test have permission to delete of Backend user
 		And I check permission "backendUser-delete"
 		Then I click save "Lưu"
@@ -129,6 +143,7 @@ Feature: Test Permission Of User
 		Then I see user name lgp "lgp" and I click edit "delete"
 		And I see accept and I click accept "Xác nhận"
 
+	@watch
 	Scenario: Test not have permission to read of task
 		And I uncheck permission "task-read"
 		Then I click save "Lưu"
@@ -136,6 +151,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/task"
 		And I see permission deny in page "PERMISSION DENY"
 	
+	@watch
 	Scenario: Test have permission to read of task
 		And I check permission "task-read"
 		Then I click save "Lưu"
@@ -145,6 +161,7 @@ Feature: Test Permission Of User
 			|service|time_work|name|phone_number|address|price|evaluate|time_post|status|
 			|Dọn dẹp nhà|29/04/2016 08:00|Quân|0902155583|634 Điện Biên Phủ, phường 11, Hồ Chí Minh, Việt Nam|100,000 VND - 2h|28/04/2016 15:22|CONFIRMED|
 	
+	@watch
 	Scenario: Test not have permission to write of task
 		And I uncheck permission "task-write"
 		Then I click save "Lưu"
@@ -159,6 +176,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of task
 		And I check permission "task-write"
 		Then I click save "Lưu"
@@ -173,6 +191,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "complete task thành công"
 
+	@watch
 	Scenario: Test not have permission to read of schedule
 		And I uncheck permission "schedule-read"
 		Then I click save "Lưu"
@@ -180,6 +199,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/schedule"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of schedule
 		And I check permission "schedule-read"
 		Then I click save "Lưu"
@@ -189,6 +209,7 @@ Feature: Test Permission Of User
 			|service|time_work|name|phone_number|time_post|status|
 			|Dọn dẹp nhà|06:00|Ha|0908985188|29/04/2016 09:02|ACTIVE|
 
+	@watch
 	Scenario: Test not have permission to write of schedule
 		And I uncheck permission "schedule-write"
 		Then I click save "Lưu"
@@ -202,6 +223,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of schedule
 		And I check permission "schedule-write"
 		Then I click save "Lưu"
@@ -215,6 +237,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Dừng lịch làm việc thành công"
 
+	@watch
 	Scenario: Test not have permission to delete of schedule
 		And I uncheck permission "schedule-delete"
 		Then I click save "Lưu"
@@ -228,6 +251,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY [403]"
 
+	@watch
 	Scenario: Test have permission to delete of schedule
 		And I check permission "schedule-delete"
 		Then I click save "Lưu"
@@ -241,6 +265,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Xóa lịch làm việc thành công"
 
+	@watch
 	Scenario: Test not have permission to read of asker
 		And I uncheck permission "asker-read"
 		Then I click save "Lưu"
@@ -248,6 +273,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/asker"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of asker
 		And I check permission "asker-read"
 		Then I click save "Lưu"
@@ -258,6 +284,7 @@ Feature: Test Permission Of User
 			|Phuong|0938609900|ACTIVE|29/04/2016 09:34|||
 			|a xin|	0903837158|	ACTIVE|28/04/2016 20:25|||
 
+	@watch
 	Scenario: Test not have permission to write of asker
 		And I uncheck permission "asker-write"
 		Then I click save "Lưu"
@@ -273,6 +300,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of asker
 		And I check permission "asker-write"
 		Then I click save "Lưu"
@@ -288,6 +316,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Activate thành công"
 	
+	@watch
 	Scenario: Test not have permission to write of asker
 		And I uncheck permission "asker-delete"
 		Then I click save "Lưu"
@@ -302,6 +331,7 @@ Feature: Test Permission Of User
 		Then I click tab other "Khác"
 		And I not see button delete account "Xóa tài khoản"
 
+	@watch
 	Scenario: Test have permission to write of asker
 		And I check permission "asker-delete"
 		Then I click save "Lưu"
@@ -316,6 +346,7 @@ Feature: Test Permission Of User
 		Then I click tab other "Khác"
 		And I see button delete account "Xóa tài khoản"
 
+	@watch
 	Scenario: Test not have permission to read of tasker
 		And I uncheck permission "tasker-read"
 		Then I click save "Lưu"
@@ -323,6 +354,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/tasker"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of tasker
 		And I check permission "tasker-read"
 		Then I click save "Lưu"
@@ -332,6 +364,7 @@ Feature: Test Permission Of User
 			|name|phone_number|avatar|service|status|time_build|
 			|Do Hang|0903109978||Vệ sinh máy lạnh|UNVERIFIED|28/04/2016 20:19|
 
+	@watch
 	Scenario: Test not have permission to write of tasker
 		And I uncheck permission "tasker-write"
 		Then I click save "Lưu"
@@ -346,6 +379,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of tasker
 		And I check permission "tasker-write"
 		Then I click save "Lưu"
@@ -360,6 +394,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Cập nhật thông tin cho tasker thành công"
 
+	@watch
 	Scenario: Test not have permission to delete of tasker
 		And I uncheck permission "tasker-delete"
 		Then I click save "Lưu"
@@ -373,6 +408,7 @@ Feature: Test Permission Of User
 		Then I click tab other "Khác"
 		And I not see button delete account "Xóa tài khoản"
 
+	@watch
 	Scenario: Test have permission to delete of tasker
 		And I check permission "tasker-delete"
 		Then I click save "Lưu"
@@ -386,6 +422,7 @@ Feature: Test Permission Of User
 		Then I click tab other "Khác"
 		And I see button delete account "Xóa tài khoản"
 
+	@watch
 	Scenario: Test not have permission to read of user report
 		And I uncheck permission "userReport-read"
 		Then I click save "Lưu"
@@ -397,6 +434,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/tester-user"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of user report
 		And I check permission "userReport-read"
 		Then I click save "Lưu"
@@ -412,6 +450,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/tester-user"
 		And I see list phone number "Danh sách số điện thoại"
 
+	@watch
 	Scenario: Test not have permission to write of user report
 		And I uncheck permission "userReport-write"
 		Then I click save "Lưu"
@@ -430,6 +469,7 @@ Feature: Test Permission Of User
 		And I click add "Thêm"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of user report
 		And I check permission "userReport-write"
 		Then I click save "Lưu"
@@ -448,6 +488,7 @@ Feature: Test Permission Of User
 		And I click add "Thêm"
 		And I see phone number in list "01655819807"
 
+	@watch
 	Scenario: Test not have permission to delete of user report
 		And I uncheck permission "userReport-delete"
 		Then I click save "Lưu"
@@ -465,6 +506,7 @@ Feature: Test Permission Of User
 		And I click delete "X"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to delete of user report
 		And I check permission "userReport-delete"
 		Then I click save "Lưu"
@@ -482,6 +524,7 @@ Feature: Test Permission Of User
 		And I click delete "X"
 		And I not see phone number in list
 
+	@watch
 	Scenario: Test not have permission to read of service
 		And I uncheck permission "service-read"
 		Then I click save "Lưu"
@@ -491,6 +534,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/sub-service"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of service
 		And I check permission "service-read"
 		Then I click save "Lưu"
@@ -507,6 +551,7 @@ Feature: Test Permission Of User
 			|Làm tóc|Làm đẹp|80000|ACTIVE|
 			|Trang điểm|Làm đẹp|90000|ACTIVE|
 
+	@watch
 	Scenario: Test not have permission to write of service
 		And I uncheck permission "service-write"
 		Then I click save "Lưu"
@@ -535,6 +580,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of service
 		And I check permission "service-write"
 		Then I click save "Lưu"
@@ -563,6 +609,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Tạo dịch vụ thành công"
 
+	@watch
 	Scenario: Test not have permission to read of activation code
 		And I uncheck permission "activationCode-read"
 		Then I click save "Lưu"
@@ -577,6 +624,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/user-activation"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of activation code
 		And I check permission "activationCode-read"
 		Then I click save "Lưu"
@@ -587,13 +635,15 @@ Feature: Test Permission Of User
 			|0993888999|7477|2016/04/27 22:35|1|
 			|0908222288|4509|2016/04/26 22:30|0|
 
+	@watch
 	Scenario: Test not have permission to read of promotion code
 		And I uncheck permission "promotionCode-read"
 		Then I click save "Lưu"
 		And I see accept and I click accept "Xác nhận"
 		And I go to website with domain "http://192.168.1.123:4000/promotion-code"
 		And I see permission deny in page "PERMISSION DENY"
-		
+
+	@watch
 	Scenario: Test have permission to read of promotion code
 		And I check permission "promotionCode-read"
 		Then I click save "Lưu"
@@ -603,6 +653,7 @@ Feature: Test Permission Of User
 			|code|description|promotion|target|value_type|value|start_date|end_date|createdAt|limit|
 			|06t8c78m|Service provider sign up Promotion||TASKER||0|22/04/2016 00:00|22/06/2016 00:00|23/04/2016 09:47||
 
+	@watch
 	Scenario: Test not have permission to write of promotion code
 		And I uncheck permission "promotionCode-write"
 		Then I click save "Lưu"
@@ -636,6 +687,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of promotion code
 		And I check permission "promotionCode-write"
 		Then I click save "Lưu"
@@ -669,13 +721,15 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Tạo Mã khuyến mãi thành công"
 
+	@watch
 	Scenario: Test not have permission to read of delete user
 		And I uncheck permission "deleteList-read"
 		Then I click save "Lưu"
 		And I see accept and I click accept "Xác nhận"
 		And I go to website with domain "http://192.168.1.123:4000/delete-user"
 		And I see permission deny in page "PERMISSION DENY"
-		
+
+	@watch
 	Scenario: Test have permission to read of delete user
 		And I check permission "deleteList-read"
 		Then I click save "Lưu"
@@ -683,6 +737,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/delete-user"
 		And I see list phone number "Danh sách số điện thoại"
 
+	@watch
 	Scenario: Test not have permission to write of delete user
 		And I uncheck permission "deleteList-write"
 		Then I click save "Lưu"
@@ -692,6 +747,7 @@ Feature: Test Permission Of User
 		And I click add "Thêm"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of delete user
 		And I check permission "deleteList-write"
 		Then I click save "Lưu"
@@ -701,6 +757,7 @@ Feature: Test Permission Of User
 		And I click add "Thêm"
 		And I see phone number in list "01655819807"
 
+	@watch
 	Scenario: Test not have permission to delete of delete user
 		And I uncheck permission "deleteList-delete"
 		Then I click save "Lưu"
@@ -710,6 +767,7 @@ Feature: Test Permission Of User
 		And I click delete "X"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to delete of delete user
 		And I check permission "deleteList-delete"
 		Then I click save "Lưu"
@@ -719,6 +777,7 @@ Feature: Test Permission Of User
 		And I click delete "X"
 		And I not see phone number in list
 
+	@watch
 	Scenario: Test not have permission to read of deposit
 		And I uncheck permission "deposit-read"
 		Then I click save "Lưu"
@@ -727,6 +786,7 @@ Feature: Test Permission Of User
 		And I click tasker with time build "27/04/2016 15:38"
 		And I not see element deposit "Nạp tiền"
 
+	@watch
 	Scenario: Test have permission to read of deposit
 		And I check permission "deposit-read"
 		Then I click save "Lưu"
@@ -735,6 +795,7 @@ Feature: Test Permission Of User
 		And I click tasker with time build "27/04/2016 15:38"
 		And I see element deposit "Nạp tiền"
 
+	@watch
 	Scenario: Test not have permission to read of company
 		And I uncheck permission "company-read"
 		Then I click save "Lưu"
@@ -742,6 +803,7 @@ Feature: Test Permission Of User
 		And I go to website with domain "http://192.168.1.123:4000/company"
 		And I see permission deny in page "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to read of company
 		And I check permission "company-read"
 		Then I click save "Lưu"
@@ -752,6 +814,7 @@ Feature: Test Permission Of User
 			|Nguyễn Tấn Thành|0917547133||ACTIVE|0 VND|26/04/2016 16:28|
 			|Lê Viết Hải	|0908990768||ACTIVE|0 VND|23/04/2016 11:43|
 
+	@watch
 	Scenario: Test not have permission to write of company
 		And I uncheck permission "company-write"
 		Then I click save "Lưu"
@@ -767,6 +830,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to write of company
 		And I check permission "company-write"
 		Then I click save "Lưu"
@@ -782,6 +846,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog success "Xác thực công ty thành công"
 
+	@watch
 	Scenario: Test not have permission to delete of company
 		And I uncheck permission "company-delete"
 		Then I click save "Lưu"
@@ -797,6 +862,7 @@ Feature: Test Permission Of User
 		And I see accept and I click accept "Xác nhận"
 		And I see dialog error permission deny "PERMISSION DENY"
 
+	@watch
 	Scenario: Test have permission to delete of company
 		And I check permission "company-delete"
 		Then I click save "Lưu"
